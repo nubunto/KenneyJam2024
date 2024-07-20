@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c24qnasgtaslh"]
+
+[ext_resource type="PackedScene" uid="uid://btcfy0lujojlt" path="res://Assets/Blasters/blasterH.glb" id="1_andvp"]
+
+[node name="blasterH2" instance=ExtResource("1_andvp")]
+
+[node name="blasterH" parent="." index="0"]
+layers = 2

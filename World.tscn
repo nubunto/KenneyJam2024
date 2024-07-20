@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://qcgajgymrq3h"]
+[gd_scene load_steps=9 format=3 uid="uid://qcgajgymrq3h"]
 
+[ext_resource type="Script" path="res://World.gd" id="1_xwm2t"]
+[ext_resource type="PackedScene" uid="uid://d1su8ysdkbleh" path="res://Levels/death_zone.tscn" id="2_hce57"]
 [ext_resource type="PackedScene" uid="uid://cga7ehof2hlsf" path="res://player.tscn" id="3_ggau5"]
-[ext_resource type="PackedScene" uid="uid://xa2wtmnsggy7" path="res://Interactables/interactable_computer.tscn" id="4_lrpq8"]
+[ext_resource type="PackedScene" uid="uid://cdj8e2rs6qq0n" path="res://Screens/game_over_screen.tscn" id="4_oqhmw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v0prg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,12 +17,11 @@ background_mode = 2
 sky = SubResource("Sky_r1qey")
 tonemap_mode = 2
 
-[sub_resource type="SphereMesh" id="SphereMesh_hegx6"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_km3gn"]
+size = Vector3(100, 1, 100)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k13dq"]
-albedo_color = Color(0.442501, 7.58059e-07, 1.44392e-07, 1)
-
-[node name="World" type="Node3D"]
+[node name="Sandbox" type="Node3D"]
+script = ExtResource("1_xwm2t")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lelyd")
@@ -29,9 +30,11 @@ environment = SubResource("Environment_lelyd")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Room" type="CSGBox3D" parent="."]
+[node name="Room" type="CSGBox3D" parent="." groups=["room"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 10)
+calculate_tangents = false
 use_collision = true
+collision_mask = 0
 flip_faces = true
 size = Vector3(40, 20, 20)
 
@@ -51,40 +54,29 @@ operation = 2
 flip_faces = true
 size = Vector3(4.7, 1, 6.3)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.85, -11.6549, 0.700001)
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Room"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.9, -19.6, 0.25)
+size = Vector3(19, 19.6, 20.5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0999985, 8.1, 0)
 operation = 2
-calculate_tangents = false
-size = Vector3(4.7, 16, 22)
+size = Vector3(47, 7, 21)
 
 [node name="Player" parent="." instance=ExtResource("3_ggau5")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 14, 28.5, 9)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 28.5, 9)
 
-[node name="InteractableComputer" parent="." instance=ExtResource("4_lrpq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9, -0.00989974, 10.6)
+[node name="DeathZone" parent="." instance=ExtResource("2_hce57")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 33)
 
-[node name="Marker1" type="Node3D" parent="." groups=["marker"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 15)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathZone"]
+shape = SubResource("BoxShape3D_km3gn")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-mesh = SubResource("SphereMesh_hegx6")
+[node name="GameOverScreen" parent="." instance=ExtResource("4_oqhmw")]
+process_mode = 2
+visible = false
 
-[node name="Marker2" type="Node3D" parent="." groups=["marker"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 18, 15)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker2"]
-mesh = SubResource("SphereMesh_hegx6")
-
-[node name="Marker4" type="Node3D" parent="." groups=["marker"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 16, 5)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker4"]
-mesh = SubResource("SphereMesh_hegx6")
-
-[node name="Marker3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 10, 3)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3"]
-material_override = SubResource("StandardMaterial3D_k13dq")
-mesh = SubResource("SphereMesh_hegx6")
+[editable path="DeathZone"]

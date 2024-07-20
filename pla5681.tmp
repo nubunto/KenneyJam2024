@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://cga7ehof2hlsf"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_onnp5"]
+[ext_resource type="Texture2D" uid="uid://b2vv5m6mj863u" path="res://Assets/colored-transparent_packed.png" id="2_8a5aq"]
+[ext_resource type="AudioStream" uid="uid://bf52pyd8mrhcq" path="res://Assets/Sounds/Footsteps_Wood/Footsteps_Wood_Walk/Footsteps_Wood_Walk_01.wav" id="3_rw1k0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wefc4"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_onnp5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_wefc4")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+current = true
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="CameraPivot/Camera3D"]
+remote_path = NodePath("../../../SubViewportContainer/SubViewport/Camera3D")
+
+[node name="ZiplineCast" type="RayCast3D" parent="CameraPivot"]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -100)
+debug_shape_custom_color = Color(0.909246, 0.264997, 0, 1)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -512.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+cull_mask = 1047556
+fov = 80.0
+
+[node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(7.07107, 0, -7.07107, 0, 10, 0, 7.07107, 0, 7.07107, 0.3, -0.2, -1.6)
+layers = 4
+texture = ExtResource("2_8a5aq")
+hframes = 49
+vframes = 22
+frame = 740
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rw1k0")
