@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b414p4nqjsk60"
+path="res://.godot/imported/structure-barrier.obj-a2bee017fb1ef4f35faf9d214e4fb8dd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/structure-barrier.obj-a2bee017fb1ef4f35faf9d214e4fb8dd.mesh"]
+
+source_file="res://Models/OBJ format/structure-barrier.obj"
+dest_files=["res://.godot/imported/structure-barrier.obj-a2bee017fb1ef4f35faf9d214e4fb8dd.mesh", "res://.godot/imported/structure-barrier.obj-a2bee017fb1ef4f35faf9d214e4fb8dd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

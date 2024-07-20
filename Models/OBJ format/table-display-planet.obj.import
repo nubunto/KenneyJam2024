@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://wlygc1e762or"
+path="res://.godot/imported/table-display-planet.obj-3d07fd3c030241f4e4d2bb5afba843bc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/table-display-planet.obj-3d07fd3c030241f4e4d2bb5afba843bc.mesh"]
+
+source_file="res://Models/OBJ format/table-display-planet.obj"
+dest_files=["res://.godot/imported/table-display-planet.obj-3d07fd3c030241f4e4d2bb5afba843bc.mesh", "res://.godot/imported/table-display-planet.obj-3d07fd3c030241f4e4d2bb5afba843bc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

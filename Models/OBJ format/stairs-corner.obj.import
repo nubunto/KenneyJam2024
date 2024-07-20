@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://eij3os6s6fqv"
+path="res://.godot/imported/stairs-corner.obj-aa0e58c6770c594f450aa9bba073a050.mesh"
+
+[deps]
+
+files=["res://.godot/imported/stairs-corner.obj-aa0e58c6770c594f450aa9bba073a050.mesh"]
+
+source_file="res://Models/OBJ format/stairs-corner.obj"
+dest_files=["res://.godot/imported/stairs-corner.obj-aa0e58c6770c594f450aa9bba073a050.mesh", "res://.godot/imported/stairs-corner.obj-aa0e58c6770c594f450aa9bba073a050.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

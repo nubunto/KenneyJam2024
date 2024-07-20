@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b15qpr1jkj1sr"]
+
+[ext_resource type="Script" path="res://Interactables/interactable_object.gd" id="1_ljplq"]
+
+[node name="InteractableObject" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_ljplq")

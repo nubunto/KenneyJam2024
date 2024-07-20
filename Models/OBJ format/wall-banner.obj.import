@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cjv5rndd4omd6"
+path="res://.godot/imported/wall-banner.obj-dc5a7f6dc026e8412fa7e7c6f626485d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall-banner.obj-dc5a7f6dc026e8412fa7e7c6f626485d.mesh"]
+
+source_file="res://Models/OBJ format/wall-banner.obj"
+dest_files=["res://.godot/imported/wall-banner.obj-dc5a7f6dc026e8412fa7e7c6f626485d.mesh", "res://.godot/imported/wall-banner.obj-dc5a7f6dc026e8412fa7e7c6f626485d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://qcgajgymrq3h"]
+
+[ext_resource type="PackedScene" uid="uid://cga7ehof2hlsf" path="res://player.tscn" id="3_ggau5"]
+[ext_resource type="PackedScene" uid="uid://xa2wtmnsggy7" path="res://Interactables/interactable_computer.tscn" id="4_lrpq8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v0prg"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_r1qey"]
+sky_material = SubResource("ProceduralSkyMaterial_v0prg")
+
+[sub_resource type="Environment" id="Environment_lelyd"]
+background_mode = 2
+sky = SubResource("Sky_r1qey")
+tonemap_mode = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_hegx6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k13dq"]
+albedo_color = Color(0.442501, 7.58059e-07, 1.44392e-07, 1)
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lelyd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Room" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 10)
+use_collision = true
+flip_faces = true
+size = Vector3(40, 20, 20)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85, -7, 5.85)
+operation = 2
+flip_faces = true
+size = Vector3(4.7, 1, 6.3)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.15, 17, -0.15)
+size = Vector3(4.7, 1, 6.3)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.85, -2, -5.15)
+operation = 2
+flip_faces = true
+size = Vector3(4.7, 1, 6.3)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.85, -11.6549, 0.700001)
+operation = 2
+calculate_tangents = false
+size = Vector3(4.7, 16, 22)
+
+[node name="Player" parent="." instance=ExtResource("3_ggau5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 14, 28.5, 9)
+
+[node name="InteractableComputer" parent="." instance=ExtResource("4_lrpq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9, -0.00989974, 10.6)
+
+[node name="Marker1" type="Node3D" parent="." groups=["marker"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 15)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = SubResource("SphereMesh_hegx6")
+
+[node name="Marker2" type="Node3D" parent="." groups=["marker"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 18, 15)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker2"]
+mesh = SubResource("SphereMesh_hegx6")
+
+[node name="Marker4" type="Node3D" parent="." groups=["marker"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 16, 5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker4"]
+mesh = SubResource("SphereMesh_hegx6")
+
+[node name="Marker3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 10, 3)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3"]
+material_override = SubResource("StandardMaterial3D_k13dq")
+mesh = SubResource("SphereMesh_hegx6")

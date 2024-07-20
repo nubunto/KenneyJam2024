@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bl77d1n6llbgm"
+path="res://.godot/imported/chair-armrest.obj-eeb2627cb862517dc856341a5d6d97c8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/chair-armrest.obj-eeb2627cb862517dc856341a5d6d97c8.mesh"]
+
+source_file="res://Models/OBJ format/chair-armrest.obj"
+dest_files=["res://.godot/imported/chair-armrest.obj-eeb2627cb862517dc856341a5d6d97c8.mesh", "res://.godot/imported/chair-armrest.obj-eeb2627cb862517dc856341a5d6d97c8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dooq2ic5mgxie"
+path="res://.godot/imported/floor-panel-straight.obj-919ca86c1aea96388f61805dd22e73bc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/floor-panel-straight.obj-919ca86c1aea96388f61805dd22e73bc.mesh"]
+
+source_file="res://Models/OBJ format/floor-panel-straight.obj"
+dest_files=["res://.godot/imported/floor-panel-straight.obj-919ca86c1aea96388f61805dd22e73bc.mesh", "res://.godot/imported/floor-panel-straight.obj-919ca86c1aea96388f61805dd22e73bc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

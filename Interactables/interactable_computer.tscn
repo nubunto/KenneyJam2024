@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://xa2wtmnsggy7"]
+
+[ext_resource type="Script" path="res://Interactables/interactable_object.gd" id="1_1ql6e"]
+[ext_resource type="Script" path="res://Interactables/interactable_resource.gd" id="2_je56h"]
+[ext_resource type="ArrayMesh" uid="uid://1vi5kcpn6ges" path="res://Models/OBJ format/computer.obj" id="2_vnxjb"]
+[ext_resource type="Shader" uid="uid://bwa55wf44tmc1" path="res://Interactables/fresnel_interacting.tres" id="3_w7n2x"]
+
+[sub_resource type="Resource" id="Resource_anoey"]
+script = ExtResource("2_je56h")
+popup_text = "This computer seems odd..."
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3deja"]
+render_priority = 0
+shader = ExtResource("3_w7n2x")
+shader_parameter/BeingTargeted = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_ddgk7"]
+radius = 0.35
+height = 0.901
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_78qo4"]
+points = PackedVector3Array(0.0884655, 0.236077, 0.270845, -0.0898274, 0.236077, 0.270845, 0.144559, 0.00989977, -0.15, 0.161913, 0.666145, 0.0504662, -0.14592, 0.00989977, -0.15, 0.144559, 0.570863, -0.15, -0.14535, 0.011159, 0.15, 0.143988, 0.011159, 0.15, -0.205245, 0.613635, 0.0609751, -0.155213, 0.45, -0.169062, 0.203883, 0.613635, 0.0609751, -0.163275, 0.645115, -0.0648233, -0.205245, 0.246526, 0.00860696, 0.203883, 0.246526, 0.00860696, 0.182898, 0.340899, -0.159227, -0.163275, 0.666145, 0.0504662, 0.192492, 0.261191, 0.11952, -0.192899, 0.261534, 0.119153, -0.18422, 0.340899, -0.159227, -0.14592, 0.570863, -0.15, 0.161913, 0.645115, -0.0648233, 0.203883, 0.561125, -0.0543585, -0.205245, 0.561125, -0.0543585, 0.153851, 0.45, -0.169062, -0.131757, 0.246526, 0.228854, 0.130436, 0.246526, 0.228854, 0.0828861, 0.182964, 0.246878, 0.173796, 0.45, -0.149086, -0.175, 0.449918, -0.148953, -0.0838882, 0.183599, 0.24601, 0.172406, 0.634666, -0.0648233, -0.173728, 0.634666, -0.0648233)
+
+[node name="InteractableComputer" type="StaticBody3D" node_paths=PackedStringArray("aura_mesh")]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_1ql6e")
+interactable_resource = SubResource("Resource_anoey")
+aura_mesh = NodePath("Aura")
+
+[node name="Aura" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.347704, 0)
+material_override = SubResource("ShaderMaterial_3deja")
+mesh = SubResource("SphereMesh_ddgk7")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_vnxjb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_78qo4")

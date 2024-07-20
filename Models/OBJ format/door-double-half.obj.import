@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d2h5f6epngp7o"
+path="res://.godot/imported/door-double-half.obj-188c37e74f6e90d266554d0540cbffba.mesh"
+
+[deps]
+
+files=["res://.godot/imported/door-double-half.obj-188c37e74f6e90d266554d0540cbffba.mesh"]
+
+source_file="res://Models/OBJ format/door-double-half.obj"
+dest_files=["res://.godot/imported/door-double-half.obj-188c37e74f6e90d266554d0540cbffba.mesh", "res://.godot/imported/door-double-half.obj-188c37e74f6e90d266554d0540cbffba.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

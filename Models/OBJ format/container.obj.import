@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvgaprag0wyh4"
+path="res://.godot/imported/container.obj-0742fc91e77807ed2dfe10f083b3c013.mesh"
+
+[deps]
+
+files=["res://.godot/imported/container.obj-0742fc91e77807ed2dfe10f083b3c013.mesh"]
+
+source_file="res://Models/OBJ format/container.obj"
+dest_files=["res://.godot/imported/container.obj-0742fc91e77807ed2dfe10f083b3c013.mesh", "res://.godot/imported/container.obj-0742fc91e77807ed2dfe10f083b3c013.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
